@@ -6,7 +6,7 @@
       <d2p1:isDisabled>false</d2p1:isDisabled>
       <d2p1:isStatic>false</d2p1:isStatic>
       <d2p1:isVisible>true</d2p1:isVisible>
-      <d2p1:name>asteroid_1_</d2p1:name>
+      <d2p1:name>asteroid1</d2p1:name>
       <d2p1:tag i:nil="true" />
       <d2p1:SerializeComponents xmlns:d4p1="WaveEngine.Framework">
         <d4p1:Component xmlns:d5p1="WaveEngine.Framework.Graphics" i:type="d5p1:Transform3D">
@@ -19,7 +19,7 @@
           <d5p1:LocalPosition xmlns:d6p1="WaveEngine.Common.Math">
             <d6p1:X>0</d6p1:X>
             <d6p1:Y>0</d6p1:Y>
-            <d6p1:Z>-4</d6p1:Z>
+            <d6p1:Z>-2</d6p1:Z>
           </d5p1:LocalPosition>
           <d5p1:LocalScale xmlns:d6p1="WaveEngine.Common.Math">
             <d6p1:X>1</d6p1:X>
@@ -29,7 +29,7 @@
         </d4p1:Component>
         <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d5p1:MaterialComponent">
           <d5p1:AsignedTo>15 - Default</d5p1:AsignedTo>
-          <d5p1:MaterialPath>Content/Assets/Materials/glassMat.wmat</d5p1:MaterialPath>
+          <d5p1:MaterialPath>Content/Assets/Materials/asteroidMat.wmat</d5p1:MaterialPath>
           <d5p1:UseCopy>false</d5p1:UseCopy>
           <d5p1:useDummyMaterial>false</d5p1:useDummyMaterial>
         </d4p1:Component>
@@ -57,7 +57,7 @@
       <d2p1:isDisabled>false</d2p1:isDisabled>
       <d2p1:isStatic>false</d2p1:isStatic>
       <d2p1:isVisible>true</d2p1:isVisible>
-      <d2p1:name>asteroid_2_</d2p1:name>
+      <d2p1:name>asteroid2</d2p1:name>
       <d2p1:tag i:nil="true" />
       <d2p1:SerializeComponents xmlns:d4p1="WaveEngine.Framework">
         <d4p1:Component xmlns:d5p1="WaveEngine.Framework.Graphics" i:type="d5p1:Transform3D">
@@ -68,9 +68,9 @@
             <d6p1:Z>0</d6p1:Z>
           </d5p1:LocalOrientation>
           <d5p1:LocalPosition xmlns:d6p1="WaveEngine.Common.Math">
-            <d6p1:X>1</d6p1:X>
+            <d6p1:X>0.4</d6p1:X>
             <d6p1:Y>0</d6p1:Y>
-            <d6p1:Z>-4</d6p1:Z>
+            <d6p1:Z>-2</d6p1:Z>
           </d5p1:LocalPosition>
           <d5p1:LocalScale xmlns:d6p1="WaveEngine.Common.Math">
             <d6p1:X>1</d6p1:X>
@@ -80,7 +80,7 @@
         </d4p1:Component>
         <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d5p1:MaterialComponent">
           <d5p1:AsignedTo>15 - Default</d5p1:AsignedTo>
-          <d5p1:MaterialPath>Content/Assets/Materials/glassMat.wmat</d5p1:MaterialPath>
+          <d5p1:MaterialPath>Content/Assets/Materials/asteroidMat.wmat</d5p1:MaterialPath>
           <d5p1:UseCopy>false</d5p1:UseCopy>
           <d5p1:useDummyMaterial>false</d5p1:useDummyMaterial>
         </d4p1:Component>
@@ -108,7 +108,7 @@
       <d2p1:isDisabled>false</d2p1:isDisabled>
       <d2p1:isStatic>false</d2p1:isStatic>
       <d2p1:isVisible>true</d2p1:isVisible>
-      <d2p1:name>asteroid_2_01</d2p1:name>
+      <d2p1:name>asteroid3</d2p1:name>
       <d2p1:tag i:nil="true" />
       <d2p1:SerializeComponents xmlns:d4p1="WaveEngine.Framework">
         <d4p1:Component xmlns:d5p1="WaveEngine.Framework.Graphics" i:type="d5p1:Transform3D">
@@ -119,21 +119,15 @@
             <d6p1:Z>0</d6p1:Z>
           </d5p1:LocalOrientation>
           <d5p1:LocalPosition xmlns:d6p1="WaveEngine.Common.Math">
-            <d6p1:X>1</d6p1:X>
+            <d6p1:X>-0.00374632888</d6p1:X>
             <d6p1:Y>0</d6p1:Y>
-            <d6p1:Z>-3</d6p1:Z>
+            <d6p1:Z>-1.79207551</d6p1:Z>
           </d5p1:LocalPosition>
           <d5p1:LocalScale xmlns:d6p1="WaveEngine.Common.Math">
             <d6p1:X>1</d6p1:X>
             <d6p1:Y>1</d6p1:Y>
             <d6p1:Z>1</d6p1:Z>
           </d5p1:LocalScale>
-        </d4p1:Component>
-        <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d5p1:MaterialComponent">
-          <d5p1:AsignedTo>15 - Default</d5p1:AsignedTo>
-          <d5p1:MaterialPath>Content/Assets/Materials/glassMat.wmat</d5p1:MaterialPath>
-          <d5p1:UseCopy>false</d5p1:UseCopy>
-          <d5p1:useDummyMaterial>false</d5p1:useDummyMaterial>
         </d4p1:Component>
         <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d5p1:FileMesh">
           <ModelMeshName xmlns="WaveEngine.Components.Graphics3D">A2_LOD0</ModelMeshName>
@@ -142,6 +136,12 @@
         <d4p1:Component xmlns:d5p1="WaveEngine.Components.Graphics3D" i:type="d5p1:MeshRenderer">
           <d4p1:FrustumCullingEnabled>true</d4p1:FrustumCullingEnabled>
           <d4p1:IsVisible>true</d4p1:IsVisible>
+        </d4p1:Component>
+        <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d5p1:MaterialComponent">
+          <d5p1:AsignedTo>15 - Default</d5p1:AsignedTo>
+          <d5p1:MaterialPath>Content/Assets/Materials/asteroidMat.wmat</d5p1:MaterialPath>
+          <d5p1:UseCopy>false</d5p1:UseCopy>
+          <d5p1:useDummyMaterial>false</d5p1:useDummyMaterial>
         </d4p1:Component>
       </d2p1:SerializeComponents>
     </d2p1:BaseEntityModel>
@@ -175,7 +175,7 @@
             </d6p1:Component>
             <d6p1:Component xmlns:d7p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d7p1:MaterialComponent">
               <d7p1:AsignedTo>08 - Default</d7p1:AsignedTo>
-              <d7p1:MaterialPath>Content/Assets/Materials/MyMaterial.wmat</d7p1:MaterialPath>
+              <d7p1:MaterialPath>Content/Assets/Materials/thrustMat.wmat</d7p1:MaterialPath>
               <d7p1:UseCopy>false</d7p1:UseCopy>
               <d7p1:useDummyMaterial>false</d7p1:useDummyMaterial>
             </d6p1:Component>
@@ -226,7 +226,7 @@
             </d6p1:Component>
             <d6p1:Component xmlns:d7p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d7p1:MaterialComponent">
               <d7p1:AsignedTo>08 - Default</d7p1:AsignedTo>
-              <d7p1:MaterialPath>Content/Assets/Materials/MyMaterial.wmat</d7p1:MaterialPath>
+              <d7p1:MaterialPath>Content/Assets/Materials/thrustMat.wmat</d7p1:MaterialPath>
               <d7p1:UseCopy>false</d7p1:UseCopy>
               <d7p1:useDummyMaterial>false</d7p1:useDummyMaterial>
             </d6p1:Component>
@@ -277,7 +277,7 @@
             </d6p1:Component>
             <d6p1:Component xmlns:d7p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d7p1:MaterialComponent">
               <d7p1:AsignedTo>08 - Default</d7p1:AsignedTo>
-              <d7p1:MaterialPath>Content/Assets/Materials/MyMaterial.wmat</d7p1:MaterialPath>
+              <d7p1:MaterialPath>Content/Assets/Materials/thrustMat.wmat</d7p1:MaterialPath>
               <d7p1:UseCopy>false</d7p1:UseCopy>
               <d7p1:useDummyMaterial>false</d7p1:useDummyMaterial>
             </d6p1:Component>
@@ -388,7 +388,7 @@
       <d2p1:isDisabled>false</d2p1:isDisabled>
       <d2p1:isStatic>false</d2p1:isStatic>
       <d2p1:isVisible>true</d2p1:isVisible>
-      <d2p1:name>ship</d2p1:name>
+      <d2p1:name>shipEntity</d2p1:name>
       <d2p1:tag i:nil="true" />
       <d2p1:SerializeComponents xmlns:d4p1="WaveEngine.Framework">
         <d4p1:Component xmlns:d5p1="WaveEngine.Framework.Graphics" i:type="d5p1:Transform3D">
@@ -412,7 +412,7 @@
         <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/W25SpaceShipDemo" i:type="d5p1:ShipBehaviour">
           <d4p1:UpdateOrder>0.5</d4p1:UpdateOrder>
           <d4p1:isDisabled>false</d4p1:isDisabled>
-          <d5p1:Speed>1</d5p1:Speed>
+          <d5p1:Speed>0.1</d5p1:Speed>
         </d4p1:Component>
       </d2p1:SerializeComponents>
     </d2p1:BaseEntityModel>
@@ -541,15 +541,15 @@
           <d2p1:SerializeComponents xmlns:d6p1="WaveEngine.Framework">
             <d6p1:Component xmlns:d7p1="WaveEngine.Framework.Graphics" i:type="d7p1:Transform3D">
               <d7p1:LocalOrientation xmlns:d8p1="WaveEngine.Common.Math">
-                <d8p1:W>0.9727759</d8p1:W>
-                <d8p1:X>-0.231747866</d8p1:X>
-                <d8p1:Y>-4.31431585E-10</d8p1:Y>
-                <d8p1:Z>-1.02781124E-10</d8p1:Z>
+                <d8p1:W>0.9961667</d8p1:W>
+                <d8p1:X>-0.08748186</d8p1:X>
+                <d8p1:Y>-4.118429E-10</d8p1:Y>
+                <d8p1:Z>-1.645686E-10</d8p1:Z>
               </d7p1:LocalOrientation>
               <d7p1:LocalPosition xmlns:d8p1="WaveEngine.Common.Math">
                 <d8p1:X>0</d8p1:X>
                 <d8p1:Y>0.6251296</d8p1:Y>
-                <d8p1:Z>1.33416677</d8p1:Z>
+                <d8p1:Z>1.32866931</d8p1:Z>
               </d7p1:LocalPosition>
               <d7p1:LocalScale xmlns:d8p1="WaveEngine.Common.Math">
                 <d8p1:X>1</d8p1:X>
@@ -636,7 +636,44 @@
         <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/W25SpaceShipDemo" i:type="d5p1:FollowBehavior">
           <d4p1:UpdateOrder>0.5</d4p1:UpdateOrder>
           <d4p1:isDisabled>false</d4p1:isDisabled>
-          <d5p1:EntityPath>ship</d5p1:EntityPath>
+          <d5p1:EntityPath>shipEntity</d5p1:EntityPath>
+        </d4p1:Component>
+      </d2p1:SerializeComponents>
+    </d2p1:BaseEntityModel>
+    <d2p1:BaseEntityModel i:type="d2p1:EntityModel">
+      <d2p1:SerializeChildrens />
+      <d2p1:isDisabled>false</d2p1:isDisabled>
+      <d2p1:isStatic>false</d2p1:isStatic>
+      <d2p1:isVisible>true</d2p1:isVisible>
+      <d2p1:name>asteroidsManager</d2p1:name>
+      <d2p1:tag i:nil="true" />
+      <d2p1:SerializeComponents xmlns:d4p1="WaveEngine.Framework">
+        <d4p1:Component xmlns:d5p1="WaveEngine.Framework.Graphics" i:type="d5p1:Transform3D">
+          <d5p1:LocalOrientation xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:W>1</d6p1:W>
+            <d6p1:X>0</d6p1:X>
+            <d6p1:Y>0</d6p1:Y>
+            <d6p1:Z>0</d6p1:Z>
+          </d5p1:LocalOrientation>
+          <d5p1:LocalPosition xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>0</d6p1:X>
+            <d6p1:Y>0</d6p1:Y>
+            <d6p1:Z>-3</d6p1:Z>
+          </d5p1:LocalPosition>
+          <d5p1:LocalScale xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>1</d6p1:X>
+            <d6p1:Y>1</d6p1:Y>
+            <d6p1:Z>1</d6p1:Z>
+          </d5p1:LocalScale>
+        </d4p1:Component>
+        <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/W25SpaceShipDemo" i:type="d5p1:AsteroidManager">
+          <d4p1:UpdateOrder>0.5</d4p1:UpdateOrder>
+          <d4p1:isDisabled>false</d4p1:isDisabled>
+          <d5p1:AsteroidInterval>0.05</d5p1:AsteroidInterval>
+          <d5p1:AsteroidSpread>99</d5p1:AsteroidSpread>
+          <d5p1:NumberOfAsteroids>500</d5p1:NumberOfAsteroids>
+          <d5p1:ShipPath>shipEntity</d5p1:ShipPath>
+          <d5p1:SpawnDistance>0.5</d5p1:SpawnDistance>
         </d4p1:Component>
       </d2p1:SerializeComponents>
     </d2p1:BaseEntityModel>

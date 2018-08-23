@@ -54,9 +54,10 @@ namespace W25SpaceShipDemo
 
             var localPosition = this.Transform.LocalPosition;
 
-            localPosition.Z -= this.currentSpeed * (float)gameTime.TotalSeconds;
+            //localPosition.Z -= this.currentSpeed * (float)gameTime.TotalSeconds;
+            //this.Transform.LocalPosition = localPosition;
 
-            this.Transform.LocalPosition = localPosition;
+            this.Transform.LocalPosition += (float)gameTime.TotalSeconds * this.currentSpeed * this.Transform.WorldTransform.Forward;
         }
     }
 }

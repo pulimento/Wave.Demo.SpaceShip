@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Runtime.Serialization;
 using WaveEngine.Common.Math;
 using WaveEngine.Framework;
@@ -58,6 +59,22 @@ namespace W25SpaceShipDemo
             //this.Transform.LocalPosition = localPosition;
 
             this.Transform.LocalPosition += (float)gameTime.TotalSeconds * this.currentSpeed * this.Transform.WorldTransform.Forward;
+        }
+
+        public void Reset()
+        {
+            Debug.WriteLine($"ShipBehavior - RESET");
+            this.Owner.IsVisible = true;
+            this.Transform.Position = Vector3.Zero;
+            this.Transform.Rotation = Vector3.Zero;
+            this.currentSpeed = this.Speed;
+        }
+
+        public void GameOver()
+        {
+            Debug.WriteLine($"ShipBehavior - GAME OVER");
+            this.Owner.IsVisible = false;
+            this.currentSpeed = 0;
         }
     }
 }

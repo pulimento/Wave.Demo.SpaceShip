@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Runtime.Serialization;
 using System.Text;
 using WaveEngine.Common.Attributes;
@@ -7,6 +8,7 @@ using WaveEngine.Common.Graphics;
 using WaveEngine.Components.Graphics3D;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
+using WaveEngine.Framework.Physics3D;
 using WaveEngine.Framework.Services;
 using WaveEngine.Materials;
 
@@ -41,6 +43,10 @@ namespace W25SpaceShipDemo
 
         private Entity shipEntity;
 
+        private float remainingGameOverTime;
+
+        private bool isGameOver;
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -58,6 +64,11 @@ namespace W25SpaceShipDemo
                 // First frame
                 this.CreateAsteroids();
                 this.isSpawned = true;
+
+                // Subscribe to collision event
+                var sphereCollider = this.shipEntity.FindComponent<SphereCollider3D>();
+                sphereCollider.PhysicBody.BeginCollision += PhysicBody_BeginCollision;
+
                 return;
             }
 
@@ -66,13 +77,58 @@ namespace W25SpaceShipDemo
                 return;
             }
 
-            this.remainingAsteroidTime -= (float)gameTime.TotalSeconds;
-
-            if(this.remainingAsteroidTime < 0)
+            if (this.isGameOver)
             {
-                this.ShowAsteroid();
-                this.remainingAsteroidTime += this.AsteroidInterval;
+                this.remainingGameOverTime -= (float)gameTime.TotalSeconds;
+
+                if (this.remainingGameOverTime < 0)
+                {
+                    this.Reset();
+                }                
             }
+            else
+            {
+                this.remainingAsteroidTime -= (float)gameTime.TotalSeconds;
+
+                if (this.remainingAsteroidTime < 0)
+                {
+                    this.ShowAsteroid();
+                    this.remainingAsteroidTime += this.AsteroidInterval;
+                }
+            }
+        }
+
+        private void PhysicBody_BeginCollision(object sender, CollisionInfo3D e)
+        {
+            if (!this.isGameOver)
+            {
+                this.GameOver();
+                Debug.WriteLine($"Ship collided with {e.OtherBody.Owner.Name}");
+            }
+        }
+
+        private void Reset()
+        {
+            Debug.WriteLine($"AsteroidManager - RESET");
+
+            foreach (var asteroid in this.asteroids)
+            {
+                asteroid.IsVisible = false;
+            }
+
+            this.shipEntity.FindComponent<ShipBehaviour>().Reset();
+
+            this.isGameOver = false;
+        }
+
+        private void GameOver()
+        {
+            Debug.WriteLine($"AsteroidManager - GAME OVER");
+            this.isGameOver = true;
+
+            this.shipEntity.FindComponent<ShipBehaviour>().GameOver();
+
+            this.remainingGameOverTime = 3;
         }
 
         private void ShowAsteroid()
@@ -141,8 +197,10 @@ namespace W25SpaceShipDemo
                 .AddComponent(new MaterialComponent() { MaterialPath = WaveContent.Assets.Materials.asteroidMat })
                 .AddComponent(new FileMesh() { ModelPath = model })
                 .AddComponent(new MeshRenderer())
-                .AddComponent(new Spinner());
+                .AddComponent(new Spinner())
                 .AddComponent(new SpawnBehavior())
+                .AddComponent(new SphereCollider3D())
+                .AddComponent(new StaticBody3D());
 
             asteroid.IsVisible = false;
 

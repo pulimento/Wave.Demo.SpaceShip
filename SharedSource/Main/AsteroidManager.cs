@@ -95,6 +95,9 @@ namespace W25SpaceShipDemo
             spinner.IncreaseY = WaveServices.Random.Next(-100, 100) * 0.01f;
             spinner.IncreaseZ = WaveServices.Random.Next(-100, 100) * 0.01f;
 
+            var spawnBehavior = asteroid.FindComponent<SpawnBehavior>();
+            spawnBehavior.Spawn();
+
             this.asteroidIndex = (this.asteroidIndex + 1) % this.NumberOfAsteroids;
         }
 
@@ -104,7 +107,7 @@ namespace W25SpaceShipDemo
 
             for (int i = 0; i < this.NumberOfAsteroids; i++)
             {
-                var asteroid = this.CreateAsteroids(i);
+                var asteroid = this.CreateAsteroid(i);
                 this.asteroids.Add(asteroid);
 
                 this.EntityManager.Add(asteroid);
@@ -113,7 +116,7 @@ namespace W25SpaceShipDemo
             this.asteroidIndex = 0;            
         }
 
-        private Entity CreateAsteroids(int i)
+        private Entity CreateAsteroid(int i)
         {
             string model;
 
@@ -139,6 +142,7 @@ namespace W25SpaceShipDemo
                 .AddComponent(new FileMesh() { ModelPath = model })
                 .AddComponent(new MeshRenderer())
                 .AddComponent(new Spinner());
+                .AddComponent(new SpawnBehavior())
 
             asteroid.IsVisible = false;
 

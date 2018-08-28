@@ -197,7 +197,7 @@
             <d6p1:Component xmlns:d7p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d7p1:MaterialComponent">
               <d7p1:AsignedTo i:nil="true" />
               <d7p1:MaterialPath>Content/Assets/Materials/starMat.wmat</d7p1:MaterialPath>
-              <d7p1:UseCopy>true</d7p1:UseCopy>
+              <d7p1:UseCopy>false</d7p1:UseCopy>
               <d7p1:useDummyMaterial>false</d7p1:useDummyMaterial>
             </d6p1:Component>
             <d6p1:Component xmlns:d7p1="WaveEngine.Components.Graphics3D" i:type="d7p1:ParticleSystem3D">
@@ -326,7 +326,7 @@
               </d7p1:CollisionSpread>
               <d7p1:CollisionType>None</d7p1:CollisionType>
               <d7p1:Emit>true</d7p1:Emit>
-              <d7p1:EmitRate>-0</d7p1:EmitRate>
+              <d7p1:EmitRate>0</d7p1:EmitRate>
               <d7p1:EmitterShape>FillRectangle</d7p1:EmitterShape>
               <d7p1:EmitterSize xmlns:d8p1="http://schemas.datacontract.org/2004/07/WaveEngine.Common.Math">
                 <d8p1:X>2</d8p1:X>
@@ -905,9 +905,115 @@
           <d4p1:isDisabled>false</d4p1:isDisabled>
           <d5p1:AsteroidInterval>0.1</d5p1:AsteroidInterval>
           <d5p1:AsteroidSpread>100</d5p1:AsteroidSpread>
+          <d5p1:ExplosionPath>particle3D_fire</d5p1:ExplosionPath>
           <d5p1:NumberOfAsteroids>100</d5p1:NumberOfAsteroids>
           <d5p1:ShipPath>shipEntity</d5p1:ShipPath>
           <d5p1:SpawnDistance>1</d5p1:SpawnDistance>
+        </d4p1:Component>
+      </d2p1:SerializeComponents>
+    </d2p1:BaseEntityModel>
+    <d2p1:BaseEntityModel i:type="d2p1:EntityModel">
+      <d2p1:SerializeChildrens />
+      <d2p1:isDisabled>false</d2p1:isDisabled>
+      <d2p1:isStatic>false</d2p1:isStatic>
+      <d2p1:isVisible>true</d2p1:isVisible>
+      <d2p1:name>particle3D_fire</d2p1:name>
+      <d2p1:tag i:nil="true" />
+      <d2p1:SerializeComponents xmlns:d4p1="WaveEngine.Framework">
+        <d4p1:Component xmlns:d5p1="WaveEngine.Framework.Graphics" i:type="d5p1:Transform3D">
+          <d5p1:LocalOrientation xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:W>1</d6p1:W>
+            <d6p1:X>0</d6p1:X>
+            <d6p1:Y>0</d6p1:Y>
+            <d6p1:Z>0</d6p1:Z>
+          </d5p1:LocalOrientation>
+          <d5p1:LocalPosition xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>0</d6p1:X>
+            <d6p1:Y>1.49011614E-09</d6p1:Y>
+            <d6p1:Z>-0.5999999</d6p1:Z>
+          </d5p1:LocalPosition>
+          <d5p1:LocalScale xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>0.75</d6p1:X>
+            <d6p1:Y>0.75</d6p1:Y>
+            <d6p1:Z>0.75</d6p1:Z>
+          </d5p1:LocalScale>
+        </d4p1:Component>
+        <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/WaveEngine.Components.Graphics3D" i:type="d5p1:MaterialComponent">
+          <d5p1:AsignedTo i:nil="true" />
+          <d5p1:MaterialPath>Content/Assets/Materials/fireMat.wmat</d5p1:MaterialPath>
+          <d5p1:UseCopy>false</d5p1:UseCopy>
+          <d5p1:useDummyMaterial>false</d5p1:useDummyMaterial>
+        </d4p1:Component>
+        <d4p1:Component xmlns:d5p1="WaveEngine.Components.Graphics3D" i:type="d5p1:ParticleSystem3D">
+          <d5p1:AlphaEnabled>true</d5p1:AlphaEnabled>
+          <d5p1:Bounciness>0</d5p1:Bounciness>
+          <d5p1:CollisionBehavior>Die</d5p1:CollisionBehavior>
+          <d5p1:CollisionMax xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>0</d6p1:X>
+            <d6p1:Y>0</d6p1:Y>
+            <d6p1:Z>0</d6p1:Z>
+          </d5p1:CollisionMax>
+          <d5p1:CollisionMin xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>0</d6p1:X>
+            <d6p1:Y>0</d6p1:Y>
+            <d6p1:Z>0</d6p1:Z>
+          </d5p1:CollisionMin>
+          <d5p1:CollisionSpread xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>0</d6p1:X>
+            <d6p1:Y>0</d6p1:Y>
+            <d6p1:Z>0</d6p1:Z>
+          </d5p1:CollisionSpread>
+          <d5p1:CollisionType>None</d5p1:CollisionType>
+          <d5p1:Emit>false</d5p1:Emit>
+          <d5p1:EmitRate>0</d5p1:EmitRate>
+          <d5p1:EmitterShape>FillRectangle</d5p1:EmitterShape>
+          <d5p1:EmitterSize xmlns:d6p1="http://schemas.datacontract.org/2004/07/WaveEngine.Common.Math">
+            <d6p1:X>0.02</d6p1:X>
+            <d6p1:Y>0.02</d6p1:Y>
+          </d5p1:EmitterSize>
+          <d5p1:EndDeltaScale>1</d5p1:EndDeltaScale>
+          <d5p1:Gravity xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>0</d6p1:X>
+            <d6p1:Y>0</d6p1:Y>
+            <d6p1:Z>0</d6p1:Z>
+          </d5p1:Gravity>
+          <d5p1:InitialAngle>0</d5p1:InitialAngle>
+          <d5p1:InterpolationColors xmlns:d6p1="WaveEngine.Common.Graphics" i:nil="true" />
+          <d5p1:LinearColorEnabled>false</d5p1:LinearColorEnabled>
+          <d5p1:LocalVelocity xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>0</d6p1:X>
+            <d6p1:Y>0</d6p1:Y>
+            <d6p1:Z>0</d6p1:Z>
+          </d5p1:LocalVelocity>
+          <d5p1:MaxColor xmlns:d6p1="WaveEngine.Common.Graphics">
+            <d6p1:A>255</d6p1:A>
+            <d6p1:B>255</d6p1:B>
+            <d6p1:G>255</d6p1:G>
+            <d6p1:R>255</d6p1:R>
+          </d5p1:MaxColor>
+          <d5p1:MaxLife>0.5</d5p1:MaxLife>
+          <d5p1:MaxRotateSpeed>0.01745329</d5p1:MaxRotateSpeed>
+          <d5p1:MaxSize>0.2</d5p1:MaxSize>
+          <d5p1:MinColor xmlns:d6p1="WaveEngine.Common.Graphics">
+            <d6p1:A>0</d6p1:A>
+            <d6p1:B>0</d6p1:B>
+            <d6p1:G>0</d6p1:G>
+            <d6p1:R>0</d6p1:R>
+          </d5p1:MinColor>
+          <d5p1:MinLife>0.05</d5p1:MinLife>
+          <d5p1:MinRotateSpeed>0.00349065824</d5p1:MinRotateSpeed>
+          <d5p1:MinSize>0.02</d5p1:MinSize>
+          <d5p1:RandomVelocity xmlns:d6p1="WaveEngine.Common.Math">
+            <d6p1:X>0.01</d6p1:X>
+            <d6p1:Y>0.01</d6p1:Y>
+            <d6p1:Z>0.01</d6p1:Z>
+          </d5p1:RandomVelocity>
+          <d5p1:endDeltaScale>1</d5p1:endDeltaScale>
+          <d5p1:numParticles>20</d5p1:numParticles>
+        </d4p1:Component>
+        <d4p1:Component xmlns:d5p1="WaveEngine.Components.Graphics3D" i:type="d5p1:ParticleSystemRenderer3D">
+          <d4p1:FrustumCullingEnabled>true</d4p1:FrustumCullingEnabled>
+          <d4p1:IsVisible>true</d4p1:IsVisible>
         </d4p1:Component>
       </d2p1:SerializeComponents>
     </d2p1:BaseEntityModel>

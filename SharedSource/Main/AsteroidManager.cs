@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 using System.Text;
+using System.Threading.Tasks;
 using WaveEngine.Common.Attributes;
 using WaveEngine.Common.Graphics;
 using WaveEngine.Components.Graphics3D;
+using WaveEngine.Components.Particles;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
 using WaveEngine.Framework.Physics3D;
@@ -39,9 +41,15 @@ namespace W25SpaceShipDemo
         [RenderPropertyAsEntity]
         public string ShipPath { get; set; }
 
+        [DataMember]
+        [RenderPropertyAsEntity]
+        public string ExplosionPath { get; set; }
+
         private float remainingAsteroidTime;
 
         private Entity shipEntity;
+
+        private Entity explosionEntity;
 
         private float remainingGameOverTime;
 
@@ -55,6 +63,11 @@ namespace W25SpaceShipDemo
             {
                 this.shipEntity = this.EntityManager.Find(this.ShipPath);
             }            
+
+            if (!string.IsNullOrEmpty(this.ExplosionPath))
+            {
+                this.explosionEntity = this.EntityManager.Find(this.ExplosionPath);
+            }
         }
 
         protected override void Update(TimeSpan gameTime)
@@ -100,16 +113,34 @@ namespace W25SpaceShipDemo
 
         private void PhysicBody_BeginCollision(object sender, CollisionInfo3D e)
         {
-            if (!this.isGameOver)
+            var otherBodyEntity = e.OtherBody.Owner;
+            Debug.WriteLine($"Ship collided with {otherBodyEntity.Name}");
+            if (otherBodyEntity.Name.StartsWith("asteroid"))
             {
-                this.GameOver();
-                Debug.WriteLine($"Ship collided with {e.OtherBody.Owner.Name}");
+                if(otherBodyEntity.IsVisible)
+                {                    
+                    this.GameOver();
+                }
             }
+        }
+
+        private void GameOver()
+        {
+            Debug.WriteLine($"AsteroidManager - GAME OVER");
+            this.remainingGameOverTime = 3;
+            this.isGameOver = true;            
+
+            this.shipEntity.FindComponent<ShipBehaviour>().GameOver();
+
+            this.explosionEntity.FindComponent<Transform3D>().Position = this.shipEntity.FindComponent<Transform3D>().Position;
+            this.explosionEntity.FindComponent<ParticleSystem3D>().Emit = true;
         }
 
         private void Reset()
         {
             Debug.WriteLine($"AsteroidManager - RESET");
+
+            this.isGameOver = false;
 
             foreach (var asteroid in this.asteroids)
             {
@@ -117,18 +148,8 @@ namespace W25SpaceShipDemo
             }
 
             this.shipEntity.FindComponent<ShipBehaviour>().Reset();
-
-            this.isGameOver = false;
-        }
-
-        private void GameOver()
-        {
-            Debug.WriteLine($"AsteroidManager - GAME OVER");
-            this.isGameOver = true;
-
-            this.shipEntity.FindComponent<ShipBehaviour>().GameOver();
-
-            this.remainingGameOverTime = 3;
+            var particleSystem3DEntity = this.explosionEntity.FindComponent<ParticleSystem3D>();
+            particleSystem3DEntity.Emit = false;
         }
 
         private void ShowAsteroid()

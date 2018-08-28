@@ -527,6 +527,13 @@
             <d6p1:Z>1</d6p1:Z>
           </d5p1:LocalScale>
         </d4p1:Component>
+        <d4p1:Component xmlns:d5p1="http://schemas.datacontract.org/2004/07/W25SpaceShipDemo" i:type="d5p1:FollowBehavior">
+          <d4p1:UpdateOrder>0.5</d4p1:UpdateOrder>
+          <d4p1:isDisabled>false</d4p1:isDisabled>
+          <d5p1:EntityPath>shipEntity</d5p1:EntityPath>
+          <d5p1:RotatingFollow>false</d5p1:RotatingFollow>
+          <d5p1:SmoothFollow>false</d5p1:SmoothFollow>
+        </d4p1:Component>
       </d2p1:SerializeComponents>
     </d2p1:BaseEntityModel>
     <d2p1:BaseEntityModel i:type="d2p1:EntityModel">
@@ -637,6 +644,8 @@
           <d4p1:UpdateOrder>0.5</d4p1:UpdateOrder>
           <d4p1:isDisabled>false</d4p1:isDisabled>
           <d5p1:EntityPath>shipEntity</d5p1:EntityPath>
+          <d5p1:RotatingFollow>true</d5p1:RotatingFollow>
+          <d5p1:SmoothFollow>true</d5p1:SmoothFollow>
         </d4p1:Component>
       </d2p1:SerializeComponents>
     </d2p1:BaseEntityModel>

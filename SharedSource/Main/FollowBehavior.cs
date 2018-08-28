@@ -19,6 +19,12 @@ namespace W25SpaceShipDemo
         [RenderPropertyAsEntity()]
         public string EntityPath { get; set; }
 
+        [DataMember]
+        public bool SmoothFollow { get; set; }
+
+        [DataMember]
+        public bool RotatingFollow { get; set; }
+
         private Transform3D targetTransform;
 
         protected override void Initialize()
@@ -41,10 +47,30 @@ namespace W25SpaceShipDemo
                 return;
             }
 
-            var lerp = Math.Min(1, 10 * (float)gameTime.TotalSeconds);
+             if(this.SmoothFollow)
+            {
+                // Smooth follow
+                var lerp = Math.Min(1, 10 * (float)gameTime.TotalSeconds);
 
-            this.Transform.Position = Vector3.Lerp(this.Transform.Position, this.targetTransform.Position, lerp);
-            this.Transform.Rotation = Vector3.Lerp(this.Transform.Rotation, this.targetTransform.Rotation, lerp);
+                this.Transform.Position = Vector3.Lerp(this.Transform.Position, this.targetTransform.Position, lerp);
+
+                if(this.RotatingFollow)
+                {
+                    this.Transform.Rotation = Vector3.Lerp(this.Transform.Rotation, this.targetTransform.Rotation, lerp);
+                }                
+            }
+            else
+            {
+                // Direct follow
+                this.Transform.Position = this.targetTransform.Position;
+
+                if (this.RotatingFollow)
+                {
+                    this.Transform.Rotation = this.targetTransform.Rotation;
+                }
+            }
+
+
         }
     }
 }

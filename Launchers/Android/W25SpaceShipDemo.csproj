@@ -51,6 +51,9 @@
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
     <AndroidLinkSkip>System.Runtime.Serialization</AndroidLinkSkip>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <BundleAssemblies>false</BundleAssemblies>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="WaveEngine.Adapter">
@@ -96,14 +99,10 @@
     <Folder Include="Assets\Content\" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\icon.png" />
     <AndroidResource Include="Resources\drawable\launch_screen.xml" />
     <AndroidResource Include="Resources\drawable\splash.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\splash.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\splash.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
@@ -119,7 +118,36 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\ic_launcher_round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-mdpi\ic_launcher_round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_launcher_round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_launcher_round.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_launcher_round.png" />
+  </ItemGroup>
   <Import Project="..\..\packages\WaveEngine.Box2D.2.5.0.39\build\MonoAndroid\WaveEngine.Box2D.targets" Condition="Exists('..\..\packages\WaveEngine.Box2D.2.5.0.39\build\MonoAndroid\WaveEngine.Box2D.targets')" />
   <Import Project="..\..\packages\WaveEngine.Bullet.2.5.0.39\build\MonoAndroid\WaveEngine.Bullet.targets" Condition="Exists('..\..\packages\WaveEngine.Bullet.2.5.0.39\build\MonoAndroid\WaveEngine.Bullet.targets')" />
   <Import Project="..\..\packages\WaveEngine.2.5.0.39\build\MonoAndroid\WaveEngine.targets" Condition="Exists('..\..\packages\WaveEngine.2.5.0.39\build\MonoAndroid\WaveEngine.targets')" />

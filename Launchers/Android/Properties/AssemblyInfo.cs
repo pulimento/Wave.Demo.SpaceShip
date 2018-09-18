@@ -1,6 +1,5 @@
 using Android.App;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Resources;
 using WaveEngine.Common.Attributes;
@@ -38,6 +37,6 @@ using WaveEngine.Common.Attributes;
 //      Revision
 //
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: NeutralResourcesLanguageAttribute("en-US")]
-[assembly: Application(Icon = "@drawable/icon")]
+[assembly: NeutralResourcesLanguage("en-US")]
+[assembly: Application(Icon = "@drawable/ic_launcher")]
 

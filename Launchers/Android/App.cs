@@ -7,7 +7,8 @@ using Android.Views;
 namespace W25SpaceShipDemo
 {
     [Activity(Label = "SpaceShip",
-            Icon = "@drawable/icon",
+            Icon = "@drawable/ic_launcher",
+            RoundIcon = "@drawable/ic_launcher_round",
             Theme = "@style/AppTheme.Launcher",
             ScreenOrientation = ScreenOrientation.Portrait,
             MainLauncher = true,

@@ -27,6 +27,8 @@
     <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
     <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
     <AndroidKeyStore>false</AndroidKeyStore>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -108,6 +110,7 @@
     <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <Import Project="..\..\SharedSource\Main\W25SpaceShipDemoSource.projitems" Label="Shared" Condition="Exists('..\..\SharedSource\Main\W25SpaceShipDemoSource.projitems')" />
@@ -157,5 +160,11 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\..\packages\WaveEngine.2.5.0.39\build\MonoAndroid\WaveEngine.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\WaveEngine.2.5.0.39\build\MonoAndroid\WaveEngine.targets'))" />
+    <Error Condition="!Exists('..\..\packages\WaveEngine.WindowsTools.2.5.0.5\build\WaveEngine.WindowsTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\WaveEngine.WindowsTools.2.5.0.5\build\WaveEngine.WindowsTools.targets'))" />
+    <Error Condition="!Exists('..\..\packages\WaveEngine.LinuxTools.2.5.0.4\build\WaveEngine.LinuxTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\WaveEngine.LinuxTools.2.5.0.4\build\WaveEngine.LinuxTools.targets'))" />
+    <Error Condition="!Exists('..\..\packages\WaveEngine.MacTools.2.5.0.4\build\WaveEngine.MacTools.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\WaveEngine.MacTools.2.5.0.4\build\WaveEngine.MacTools.targets'))" />
   </Target>
+  <Import Project="..\..\packages\WaveEngine.WindowsTools.2.5.0.5\build\WaveEngine.WindowsTools.targets" Condition="Exists('..\..\packages\WaveEngine.WindowsTools.2.5.0.5\build\WaveEngine.WindowsTools.targets')" />
+  <Import Project="..\..\packages\WaveEngine.LinuxTools.2.5.0.4\build\WaveEngine.LinuxTools.targets" Condition="Exists('..\..\packages\WaveEngine.LinuxTools.2.5.0.4\build\WaveEngine.LinuxTools.targets')" />
+  <Import Project="..\..\packages\WaveEngine.MacTools.2.5.0.4\build\WaveEngine.MacTools.targets" Condition="Exists('..\..\packages\WaveEngine.MacTools.2.5.0.4\build\WaveEngine.MacTools.targets')" />
 </Project>

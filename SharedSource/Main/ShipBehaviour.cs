@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Runtime.Serialization;
+using WaveEngine.Common.Attributes;
 using WaveEngine.Common.Input;
 using WaveEngine.Common.Math;
+using WaveEngine.Components.Toolkit;
 using WaveEngine.Framework;
 using WaveEngine.Framework.Graphics;
 using WaveEngine.Framework.Managers;
@@ -25,6 +27,12 @@ namespace W25SpaceShipDemo
 
         private float centerX, centerY;
 
+        private Entity lbScoreEntity;
+
+        [DataMember]
+        [RenderPropertyAsEntity()]
+        public string LabelScoreEntityPath { get; set; }
+
         protected override void Initialize()
         {
             base.Initialize();
@@ -35,6 +43,8 @@ namespace W25SpaceShipDemo
 
             centerX = this.vm.RightEdge - this.vm.LeftEdge;
             centerY = this.vm.BottomEdge - this.vm.TopEdge;
+
+            this.lbScoreEntity = this.EntityManager.Find(this.LabelScoreEntityPath);
         }
 
         protected override void Update(TimeSpan gameTime)
@@ -88,6 +98,10 @@ namespace W25SpaceShipDemo
             //this.Transform.LocalPosition = localPosition;
 
             this.Transform.LocalPosition += (float)gameTime.TotalSeconds * this.currentSpeed * this.Transform.WorldTransform.Forward;
+
+            // Update score
+            Game.score++;
+            this.lbScoreEntity.FindComponent<TextComponent>().Text = Game.score.ToString();
         }
 
         public void Reset()

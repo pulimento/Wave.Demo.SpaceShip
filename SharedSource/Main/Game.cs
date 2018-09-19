@@ -10,6 +10,8 @@ namespace W25SpaceShipDemo
 {
     public class Game : WaveEngine.Framework.Game
     {
+        public static int score = 0;
+
         public override void Initialize(IApplication application)
         {
             base.Initialize(application);
